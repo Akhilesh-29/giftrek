@@ -90,22 +90,22 @@ const CONFIG = {
   // ------------------------------------------------------------------
   gallery: [
     {
-      src: "assets/photos/photo1.svg",
+      src: "assets/photos/pic1.jpg",
       caption: "That glance that started a fire.",
       date: "Our Secret Archive"
     },
     {
-      src: "assets/photos/photo2.svg",
+      src: "assets/photos/pic2.jpg",
       caption: "Wrapped up in you, where the world can't find us.",
       date: "Midnight Memories"
     },
     {
-      src: "assets/photos/photo3.svg",
+      src: "assets/photos/pic3.jpg",
       caption: "Your silhouette in the candlelit gloom.",
       date: "Private Frame"
     },
     {
-      src: "assets/photos/photo4.svg",
+      src: "assets/photos/pic4.jpg",
       caption: "Just you, effortlessly breathtaking.",
       date: "Always & Forever"
     }
