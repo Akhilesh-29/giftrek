@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="theme-color" content="#070305">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="A private message for Rekha.">
+  <title>Just For You, Rekha</title>
+
+  <!-- Google Fonts: Cormorant Garamond, Playfair Display, Pinyon Script, Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Dancing+Script:wght@500;600&family=Montserrat:wght@200;300;400;500&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400;1,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-locked">
+  <!-- Subtle Film Grain Overlay -->
+  <div class="film-grain" aria-hidden="true"></div>
+
+  <!-- Ambient Glowing Candle aura backdrop -->
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- Canvas for drifting ember particles & cursor trails -->
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
+
+  <!-- ========================================================
+       1. PRIVACY & AGE GATE
+       ======================================================== -->
+  <div id="gateOverlay" class="gate-overlay" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+    <div class="gate-card">
+      <div class="candle-icon" aria-hidden="true">
+        <span class="flame"></span>
+        <span class="candle-base"></span>
+      </div>
+      <p class="gate-whisper">Private &amp; Confidential</p>
+      <h1 id="gateTitle" class="gate-title">This one is just for you, Rekha.</h1>
+      <p class="gate-subtitle">Whisper the secret code to step into the dark.</p>
+
+      <form id="gateForm" class="gate-form" autocomplete="off" onsubmit="return false;">
+        <div class="input-wrapper">
+          <input 
+            type="password" 
+            id="gatePassword" 
+            class="gate-input" 
+            placeholder="Our secret date..." 
+            aria-label="Enter our secret password" 
+            autocomplete="current-password"
+            spellcheck="false"
+            required
+          >
+          <button type="button" id="togglePasswordVisibility" class="btn-eye" aria-label="Toggle password visibility">
+            <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </button>
+        </div>
+        <button type="submit" id="gateSubmitBtn" class="gate-submit-btn">
+          <span>Enter, Darling</span>
+          <div class="btn-glow" aria-hidden="true"></div>
+        </button>
+        <p id="gateFeedback" class="gate-feedback" aria-live="polite"></p>
+        <button type="button" id="gateHintBtn" class="gate-hint-btn">Need a hint?</button>
+        <p id="gateHintText" class="gate-hint-text" hidden></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Floating Audio Ambience Controller -->
+  <div class="audio-control-bar" id="audioControlBar">
+    <button id="audioToggleBtn" class="audio-toggle-btn" aria-label="Toggle sensual ambient music" title="Toggle Music">
+      <span class="sound-wave" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+      </span>
+      <span class="audio-label" id="audioLabel">Music: Off</span>
+    </button>
+  </div>
+
+  <!-- ========================================================
+       MAIN SITE CONTENT (Hidden until gate unlocked)
+       ======================================================== -->
+  <main id="mainExperience" class="main-experience">
+
+    <!-- ========================================================
+         2. HERO SECTION
+         ======================================================== -->
+    <header class="hero-section" id="hero">
+      <div class="hero-heartbeat-glow" aria-hidden="true"></div>
+      <p class="hero-eyebrow font-script">Mine...</p>
+      <h1 class="hero-name" id="heroName">Rekha</h1>
+      <div class="hero-divider" aria-hidden="true">
+        <span class="line"></span>
+        <span class="gem">✦</span>
+        <span class="line"></span>
+      </div>
+      <p class="hero-tagline" id="heroTagline">I can't stop thinking about you.</p>
+      <p class="hero-subline">Close the door. Dim the lights. Take your time.</p>
+      
+      <a href="#thoughts" class="scroll-whisper" aria-label="Scroll down to begin">
+        <span class="scroll-text">Step closer</span>
+        <span class="scroll-arrow" aria-hidden="true">↓</span>
+      </a>
+    </header>
+
+    <!-- ========================================================
+         3. THINGS I THINK ABOUT
+         ======================================================== -->
+    <section class="section thoughts-section" id="thoughts">
+      <div class="section-header">
+        <span class="section-tag font-script">Midnight Reveries</span>
+        <h2 class="section-title">Things I Think About</h2>
+        <p class="section-subtitle">Quiet thoughts that linger long after you leave the room...</p>
+      </div>
+
+      <div class="thoughts-stack" id="thoughtsStack">
+        <!-- Rendered dynamically from CONFIG.thoughts -->
+      </div>
+    </section>
+
+    <!-- ========================================================
+         4. TONIGHT, I WANT... (Secrets to turn over)
+         ======================================================== -->
+    <section class="section desires-section" id="desires">
+      <div class="section-header">
+        <span class="section-tag font-script">Unspoken Desires</span>
+        <h2 class="section-title">Tonight, I Want...</h2>
+        <p class="section-subtitle">Touch a secret to turn it over. Take what belongs to you.</p>
+      </div>
+
+      <div class="desire-cards-grid" id="desireCardsGrid">
+        <!-- Rendered dynamically from CONFIG.desires -->
+      </div>
+    </section>
+
+    <!-- ========================================================
+         5. PRIVATE GALLERY (Tap to reveal veil)
+         ======================================================== -->
+    <section class="section gallery-section" id="gallery">
+      <div class="section-header">
+        <span class="section-tag font-script">For Our Eyes Only</span>
+        <h2 class="section-title">Frozen Moments</h2>
+        <p class="section-subtitle">Every memory of you burns behind my eyelids. Tap each veil to unveil.</p>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Rendered dynamically from CONFIG.gallery -->
+      </div>
+    </section>
+
+    <!-- ========================================================
+         6. WHISPERS (Press & Hold + Voice Note)
+         ======================================================== -->
+    <section class="section whispers-section" id="whispers">
+      <div class="section-header">
+        <span class="section-tag font-script">Intimate Signals</span>
+        <h2 class="section-title">Whispers In The Dark</h2>
+        <p class="section-subtitle">Some things can only be heard when you lean in close.</p>
+      </div>
+
+      <!-- Touch and Hold Interaction -->
+      <div class="hold-container">
+        <div class="hold-instructions" id="holdStatus">
+          Press and hold the burning seal... don't let go.
+        </div>
+        <div class="hold-trigger-wrapper">
+          <svg class="hold-svg-ring" viewBox="0 0 140 140" aria-hidden="true">
+            <circle class="ring-bg" cx="70" cy="70" r="60"></circle>
+            <circle class="ring-progress" id="ringProgress" cx="70" cy="70" r="60"></circle>
+          </svg>
+          <button id="holdButton" class="hold-button" aria-label="Press and hold to unlock hidden whisper">
+            <span class="hold-icon" aria-hidden="true">✦</span>
+            <span class="hold-btn-text">Touch &amp; Hold</span>
+          </button>
+        </div>
+        <div id="whisperSecretRevealed" class="whisper-secret-revealed" aria-live="polite">
+          <p class="font-script whisper-revealed-eyebrow">Pressed against your lips...</p>
+          <p class="whisper-revealed-text" id="whisperSecretText"></p>
+        </div>
+      </div>
+
+      <!-- Voice Note Player -->
+      <div class="voice-note-card">
+        <div class="vn-header">
+          <div class="vn-badge font-script">Voice Note</div>
+          <span class="vn-title">Listen closely...</span>
+        </div>
+        <p class="vn-description">A quiet message recorded in the dark for you.</p>
+        
+        <div class="custom-vn-player">
+          <button id="vnPlayBtn" class="vn-play-btn" aria-label="Play voice note">
+            <svg id="vnPlayIcon" class="vn-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z"></path>
+            </svg>
+            <svg id="vnPauseIcon" class="vn-icon hidden" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
+            </svg>
+          </button>
+          <div class="vn-track-wrap">
+            <div class="vn-waveform" id="vnWaveform" aria-hidden="true">
+              <!-- Animated visual audio bars -->
+              <span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="vn-progress-bar">
+              <div class="vn-progress-fill" id="vnProgressFill"></div>
+            </div>
+            <div class="vn-timestamps">
+              <span id="vnCurrentTime">0:00</span>
+              <span id="vnDuration">0:45</span>
+            </div>
+          </div>
+        </div>
+        <!-- Hidden audio element pointing to assets/audio/voice-note.mp3 -->
+        <audio id="voiceNoteAudio" preload="metadata">
+          <source src="assets/audio/voice-note.mp3" type="audio/mpeg">
+        </audio>
+        <p class="vn-hint" id="vnHint">Put on your headphones. I don't want anyone else hearing this.</p>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         7. LOVE LETTER, AFTER DARK
+         ======================================================== -->
+    <section class="section letter-section" id="letter">
+      <div class="section-header">
+        <span class="section-tag font-script">Unsealed at 2:00 AM</span>
+        <h2 class="section-title">Love Letter, After Dark</h2>
+        <p class="section-subtitle">Every word was written with you burning in my mind.</p>
+      </div>
+
+      <div class="letter-parchment">
+        <div class="parchment-border-top" aria-hidden="true"></div>
+        <div class="letter-salutation font-script" id="letterSalutation">My Dearest Rekha,</div>
+        
+        <div class="letter-body" id="letterBody">
+          <!-- Text is typed out smoothly or loaded from CONFIG.letter -->
+        </div>
+
+        <div class="letter-signature-wrap">
+          <p class="letter-valediction font-script">Forever completely yours,</p>
+          <p class="letter-signer" id="letterSigner">Akki</p>
+        </div>
+
+        <div class="letter-actions">
+          <button id="skipTypewriterBtn" class="letter-control-btn">Read All at Once</button>
+          <button id="replayTypewriterBtn" class="letter-control-btn hidden">Let It Type Again</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         8. DARES AND PROMISES
+         ======================================================== -->
+    <section class="section dares-promises-section" id="daresPromises">
+      <div class="section-header">
+        <span class="section-tag font-script">Our Sacred Pact</span>
+        <h2 class="section-title">Dares &amp; Promises</h2>
+        <p class="section-subtitle">One to tease your courage. One to anchor your trust.</p>
+      </div>
+
+      <!-- Tab Switcher -->
+      <div class="pact-nav" role="tablist">
+        <button id="tabDares" class="pact-tab active" role="tab" aria-selected="true" aria-controls="daresPanel">
+          <span>I Dare You To...</span>
+        </button>
+        <button id="tabPromises" class="pact-tab" role="tab" aria-selected="false" aria-controls="promisesPanel">
+          <span>I Promise To...</span>
+        </button>
+      </div>
+
+      <div class="pact-cards-deck">
+        <!-- Dares Panel -->
+        <div id="daresPanel" class="pact-panel active" role="tabpanel" aria-labelledby="tabDares">
+          <div class="interactive-deck-card">
+            <div class="card-counter font-script" id="dareCounter">Dare 1 of 6</div>
+            <div class="card-text" id="dareText">Loading dare...</div>
+            <button id="nextDareBtn" class="btn-pact-next">
+              <span>Next Dare ➔</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Promises Panel -->
+        <div id="promisesPanel" class="pact-panel" role="tabpanel" aria-labelledby="tabPromises" hidden>
+          <div class="interactive-deck-card promise-variant">
+            <div class="card-counter font-script" id="promiseCounter">Promise 1 of 6</div>
+            <div class="card-text" id="promiseText">Loading promise...</div>
+            <button id="nextPromiseBtn" class="btn-pact-next">
+              <span>Next Promise ➔</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         9. FINALE: COME FIND ME
+         ======================================================== -->
+    <section class="section finale-section" id="finale">
+      <div class="finale-glow-pulse" aria-hidden="true"></div>
+      
+      <p class="finale-eyebrow font-script">The night is waiting...</p>
+      <h2 class="finale-title">Come find me.</h2>
+      <p class="finale-subtitle">The lights are off. The candle is flickering. I'm right here.</p>
+
+      <div class="finale-choice-buttons">
+        <button id="btnOnMyWay" class="btn-finale btn-way">
+          <span class="btn-inner-text">I'm on my way</span>
+          <span class="btn-hint">Tonight can't wait</span>
+        </button>
+        <button id="btnMakeMeWait" class="btn-finale btn-wait">
+          <span class="btn-inner-text">Make me wait</span>
+          <span class="btn-hint">Tantalize the tension</span>
+        </button>
+      </div>
+
+      <!-- Finale Response Modal / Overlay Banner -->
+      <div id="finaleResponse" class="finale-response-box" hidden aria-live="polite">
+        <div class="finale-res-icon font-script">✦</div>
+        <h3 id="finaleResTitle" class="finale-res-title"></h3>
+        <p id="finaleResMessage" class="finale-res-message"></p>
+        <p class="finale-res-signoff font-script" id="finaleResSignoff"></p>
+        <button id="finaleDismissBtn" class="btn-whisper-close">Close your eyes and breathe</button>
+      </div>
+
+      <footer class="site-footer">
+        <p class="footer-whisper">Crafted with infinite heat &amp; tenderness by Akki for Rekha.</p>
+        <p class="footer-time font-script">Forever &amp; Always</p>
+      </footer>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

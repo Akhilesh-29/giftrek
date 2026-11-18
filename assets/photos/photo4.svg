@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg4" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#220716"/>
+      <stop offset="50%" stop-color="#14040d"/>
+      <stop offset="100%" stop-color="#0a0206"/>
+    </linearGradient>
+    <radialGradient id="glow4" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#f7d7cc" stop-opacity="0.25"/>
+      <stop offset="50%" stop-color="#8e142f" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#070305" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur4">
+      <feGaussianBlur stdDeviation="35"/>
+    </filter>
+  </defs>
+  <rect width="600" height="750" fill="url(#bg4)"/>
+  <circle cx="300" cy="340" r="240" fill="url(#glow4)" filter="url(#blur4)"/>
+
+  <path d="M 230,280 C 270,300 330,300 370,280 C 350,360 380,440 330,510 C 290,520 270,480 250,420" 
+        fill="none" stroke="#e2a893" stroke-width="1.8" stroke-linecap="round" opacity="0.6"/>
+        
+  <text x="300" y="450" font-family="'Cormorant Garamond', serif" font-size="28" font-style="italic" fill="#fae1cf" text-anchor="middle" letter-spacing="3" opacity="0.85">Always Unspoken</text>
+  <text x="300" y="485" font-family="'Montserrat', sans-serif" font-size="10" fill="#dfa88d" text-anchor="middle" letter-spacing="4" text-transform="uppercase" opacity="0.6">Replace with your private photo</text>
+</svg>

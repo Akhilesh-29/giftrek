@@ -1,0 +1,13 @@
+AUDIO ASSETS DIRECTORY:
+========================
+You can optionally place custom audio recordings or music in this folder:
+
+1. `voice-note.mp3`
+   - Record an intimate voice note for Rekha (e.g., using your phone voice recorder, converted to MP3).
+   - Save it as `voice-note.mp3` right here.
+   - The audio player in Section 6 ("Whispers") will automatically load and play it!
+   - (If left empty, a built-in simulated audio playback animation will run gracefully).
+
+2. `ambient.mp3`
+   - If you want a specific song or sensual instrumental track, save it here as `ambient.mp3`.
+   - The site also features a built-in sultry Web Audio synthesizer that generates a velvety candlelit ambient soundscape in real-time, so audio works immediately even without an MP3 file!

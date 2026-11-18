@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14040b"/>
+      <stop offset="60%" stop-color="#240815"/>
+      <stop offset="100%" stop-color="#090205"/>
+    </linearGradient>
+    <radialGradient id="glow2" cx="45%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#c81f44" stop-opacity="0.32"/>
+      <stop offset="45%" stop-color="#641124" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#070305" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur2">
+      <feGaussianBlur stdDeviation="40"/>
+    </filter>
+  </defs>
+  <rect width="600" height="750" fill="url(#bg2)"/>
+  <circle cx="280" cy="380" r="230" fill="url(#glow2)" filter="url(#blur2)"/>
+  
+  <!-- Intertwined graceful contours -->
+  <path d="M 210,320 C 230,260 290,260 300,310 C 310,360 250,420 320,490 C 350,520 390,510 400,470" 
+        fill="none" stroke="#e2a893" stroke-width="1.8" stroke-linecap="round" opacity="0.6"/>
+  <path d="M 260,340 C 280,290 340,300 350,350 C 360,400 320,440 370,510" 
+        fill="none" stroke="#f7d7cc" stroke-width="1.4" stroke-dasharray="3 5" opacity="0.45"/>
+        
+  <text x="300" y="440" font-family="'Cormorant Garamond', serif" font-size="28" font-style="italic" fill="#fae1cf" text-anchor="middle" letter-spacing="3" opacity="0.85">Midnight Embrace</text>
+  <text x="300" y="475" font-family="'Montserrat', sans-serif" font-size="10" fill="#dfa88d" text-anchor="middle" letter-spacing="4" text-transform="uppercase" opacity="0.6">Replace with your private photo</text>
+</svg>
